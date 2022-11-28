@@ -41,8 +41,7 @@
           Welcome, <b>{user.name}</b>!
         </span>
         <Button size="small" on:click={onLogout} label="Log out" />
-      {/if}
-      {#if !user}
+      {:else}
         <Button size="small" on:click={onLogin} label="Log in" />
         <Button primary size="small" on:click={onCreateAccount} label="Sign up" />
       {/if}

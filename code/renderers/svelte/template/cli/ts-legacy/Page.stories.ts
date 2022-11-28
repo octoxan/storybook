@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/svelte';
 import { within, userEvent } from '@storybook/testing-library';
 
-import { Page } from './Page';
+import Page from './Page.svelte';
 
-const meta = {
+const meta: Meta<Page> = {
   title: 'Example/Page',
   component: Page,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/7.0/react/configure/story-layout
+    // More on Story layout: https://storybook.js.org/docs/svelte/configure/story-layout
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof Page>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Page>;
 
 export const LoggedOut: Story = {};
 
-// More on interaction testing: https://storybook.js.org/docs/7.0/react/writing-tests/interaction-testing
+// More on interaction testing: https://storybook.js.org/docs/svelte/writing-tests/interaction-testing
 export const LoggedIn: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
